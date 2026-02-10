@@ -1,1 +1,186 @@
-/* Add styles here */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #6DD5FA, #2980B9); /* Modern gradient background */
+    margin: 0;
+    color: #333;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode {
+    background: linear-gradient(135deg, #2c3e50, #34495e); /* Dark mode gradient */
+    color: #ecf0f1;
+}
+
+.container {
+    background-color: #ffffff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* Soft, deep shadow */
+    text-align: center;
+    max-width: 90%;
+    width: 400px;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    animation: fadeIn 1s ease-out;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.dark-mode .container {
+    background-color: #3b4d61;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h1 {
+    color: #2980B9;
+    margin-bottom: 30px;
+    font-size: 2.2em;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+body.dark-mode h1 {
+    color: #6DD5FA;
+}
+
+#generate-btn {
+    background-color: #2980B9;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 50px; /* Pill-shaped button */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    outline: none;
+    margin-bottom: 30px;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 15px rgba(41, 128, 185, 0.4); /* Glow effect */
+}
+
+#generate-btn:hover {
+    background-color: #3498db;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(41, 128, 185, 0.6);
+}
+
+#generate-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(41, 128, 185, 0.3);
+}
+
+body.dark-mode #generate-btn {
+    background-color: #6DD5FA;
+    box-shadow: 0 4px 15px rgba(109, 213, 250, 0.4);
+}
+
+body.dark-mode #generate-btn:hover {
+    background-color: #7bd9fc;
+    box-shadow: 0 6px 20px rgba(109, 213, 250, 0.6);
+}
+
+#numbers-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px; /* Increased gap */
+    min-height: 80px; /* Ensure space even when empty */
+    align-items: center;
+}
+
+.number {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%; /* Circular numbers */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.6em;
+    font-weight: 600;
+    color: white;
+    background: linear-gradient(45deg, #FF6B6B, #EE5253); /* Vibrant gradient for numbers */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    animation: popIn 0.5s ease-out forwards;
+    opacity: 0;
+}
+
+body.dark-mode .number {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.number:nth-child(2) { background: linear-gradient(45deg, #FFD166, #F4D03F); animation-delay: 0.1s; }
+.number:nth-child(3) { background: linear-gradient(45deg, #06D6A0, #1ABC9C); animation-delay: 0.2s; }
+.number:nth-child(4) { background: linear-gradient(45deg, #118AB2, #2ECCFA); animation-delay: 0.3s; }
+.number:nth-child(5) { background: linear-gradient(45deg, #7F8C8D, #95A5A6); animation-delay: 0.4s; }
+.number:nth-child(6) { background: linear-gradient(45deg, #A28CED, #8E44AD); animation-delay: 0.5s; }
+
+/* Dark mode number specific gradients */
+body.dark-mode .number:nth-child(1) { background: linear-gradient(45deg, #e74c3c, #c0392b); }
+body.dark-mode .number:nth-child(2) { background: linear-gradient(45deg, #f39c12, #e67e22); }
+body.dark-mode .number:nth-child(3) { background: linear-gradient(45deg, #27ae60, #2ecc71); }
+body.dark-mode .number:nth-child(4) { background: linear-gradient(45deg, #3498db, #2980b9); }
+body.dark-mode .number:nth-child(5) { background: linear-gradient(45deg, #95a5a6, #7f8c8d); }
+body.dark-mode .number:nth-child(6) { background: linear-gradient(45deg, #8e44ad, #9b59b6); }
+
+
+@keyframes popIn {
+    from { opacity: 0; transform: scale(0.5); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.dark-mode-toggle {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.8em;
+    cursor: pointer;
+    outline: none;
+    transition: transform 0.3s ease;
+}
+
+.dark-mode-toggle:hover {
+    transform: scale(1.1);
+}
+
+
+@media (max-width: 500px) {
+    .container {
+        padding: 30px 20px;
+        width: 100%;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    #generate-btn {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+
+    .number {
+        width: 45px;
+        height: 45px;
+        font-size: 1.4em;
+    }
+
+    .dark-mode-toggle {
+        top: 10px;
+        right: 10px;
+        font-size: 1.5em;
+    }
+}
